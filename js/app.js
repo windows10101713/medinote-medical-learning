@@ -388,7 +388,7 @@
 
     const deck = { cards, current: null, flipped: false };
     const statsBox = el("div", { className: "stats", style: "margin-bottom:16px" });
-    const face = el("div", { className: "card flashcard" });
+    const face = el("button", { className: "card flashcard", type: "button" });
     const controls = el("div", { className: "btn-row", style: "justify-content:center" });
 
     const rate = (remembered) => {
@@ -420,6 +420,8 @@
           ? el("div", { className: "def", text: c.def })
           : el("div", { text: c.term }),
         el("div", { className: "hint", text: deck.flipped ? "" : "카드를 눌러 뜻을 확인하세요" }));
+      face.setAttribute("aria-pressed", String(deck.flipped));
+      face.setAttribute("aria-label", deck.flipped ? `${c.term}: ${c.def}` : `${c.term}, 뜻 보기`);
       face.onclick = () => {
         if (deck.flipped) return;
         deck.flipped = true;

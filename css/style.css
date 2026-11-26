@@ -420,7 +420,13 @@ h3 { color: var(--text); }
 .terms dt { color: var(--primary-dark); }
 .progress-bar { height: 9px; background: #eaf0f2; }
 .progress-bar > div { background: linear-gradient(90deg, #278775, #76b99f); }
-.flashcard { border: 1px solid var(--line); cursor: pointer; }
+.flashcard {
+  width: 100%;
+  border: 1px solid var(--line);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
 .choice { border-color: #e0e7eb; border-radius: 11px; }
 .choice:focus-visible, .btn:focus-visible, a:focus-visible, .filter-chip:focus-visible {
   outline: 3px solid rgba(23,107,99,.3);
